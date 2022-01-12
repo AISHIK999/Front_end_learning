@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Character counter</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="heading">
+            <h1>Real time character counter</h1>
+        </div>
+        <div class="textInput">
+            <textarea id="inputTxt" class="inputTxt" placeholder="Enter the text here" maxlength="50" style="resize: none;"></textarea>
+        </div>
+        <div class="counter">
+
+            <!-- This is the default start counter. This starts from 0 and goes upto 50 as we keep on typing -->
+            <p>Total characters: <span class="totalCounter" id="totalCounter">0</span></p>  
+            <!-- This is the default end counter. This starts from 50 and goes down to 0 as we keep on typing -->
+            <p>Remaining characters: <span class="remainingCounter" id="remainingCounter">50</span></p>
+
+        </div>
+    </div>
+</body>
+
+<!-- we import the JavaScript -->
+<script src="index.js"></script>
+
+</html>
