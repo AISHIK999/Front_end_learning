@@ -1,0 +1,121 @@
+/* Import fonts  */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jura&display=swap");
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  background-color: black;
+}
+
+.main-container {
+  max-width: 550px;
+  padding: 10px;
+}
+
+.main-container img {
+  transform: translate(50%, 0%);
+  max-width: 45%;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.main-container h1 {
+  font-weight: 600;
+  color: white;
+  font-weight: 500;
+}
+
+.main-container p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  color: white;
+  margin: 15px 0;
+}
+
+.video-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.7s;
+}
+
+/* Hides the video player from main page  */
+.active.video-container {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.video-container video {
+  position: relative;
+  max-width: 900px;
+  outline: none;
+}
+
+/* Elements for the video player  */
+@media (max-width: 991px) {
+  .video-container video {
+    max-width: 90%;
+  }
+}
+
+.close-icon {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Ripple button styles taken from: https://github.com/AISHIK999/Front_end_learning/tree/main/Button_ripple_effect */
+.rippleButton {
+  background-color: #1db954; /*Initial color of the button*/
+  padding: 20px 40px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9); /*This is the box shadow property. Increase the alpha value to make the shadow more dark*/
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  position: relative; /*We set the position of the button as relative so as to set it's value to absolute later on after we hover the cursor over the button*/
+  overflow: hidden; /*Set overflow to hidden to restrict the flow of the ripple inside the button*/
+}
+
+.rippleButton span {
+  font-size: large;
+  font-family: "Jura", sans-serif;
+  position: relative;
+  z-index: 1; /*By default z-index is 0. But we set it to 1, so that the button text "BUTTON" doesn't get covered up by the ripple effect*/
+}
+
+.rippleButton::before {
+  content: "";
+  position: absolute; /*To set the position to absolute, we need to make the parent relative, which we have explained earlier (line 19)*/
+  background-color: darkgreen; /*Ripple color on cursor hover*/
+  width: 0;
+  height: 0;
+  /*The left and top variables are picked by the JavaScript to make the ripple appear from the area we hover our cursor*/
+  left: var(--xCoord);
+  top: var(--yCoord);
+  transform: translate(-50%, -50%); /*Start the ripple effect from the center*/
+  border-radius: 50%;
+  transition: width 0.7s, height 0.7s; /*Animation time (time to cover width of button | time to cover width of button)*/
+}
+
+.rippleButton:hover::before {
+  /*Intensity of the ripple*/
+  width: 400px;
+  height: 400px;
+}
