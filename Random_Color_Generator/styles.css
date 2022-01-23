@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Source+Code+Pro:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+body {
+  margin: 0;
+  background-color: wheat;
+}
+
+h1 {
+  text-align: center;
+  font-family: "Comfortaa", cursive;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap; /*The color-containers will move to the next line with srinkage in size of the screen*/
+  justify-content: center;
+}
+
+/*------------------------------------------------------COLOR CONTAINER--------------------------------------------------------------------*/
+
+.color-container {
+  font-family: "Source Code Pro", monospace;
+  color: white;
+  font-size: 2rem;
+  background-color: yellow;
+  width: 18rem;
+  height: 9rem;
+  margin: 5px;
+  display: flex;
+  justify-content: flex-end; /*Move items to the end of the flex box horizontally*/
+  align-items: flex-end; /*Move items to the end of the flex box vertically*/
+  -webkit-text-stroke-width: 1px; /*Text outline width*/
+  -webkit-text-stroke-color: black; /*Text outline color*/
+  border: solid black 1.5px; /*Border properties of the color-container box*/
+  border-radius: 5px;
+}
+
+/*------------------------------------------------------REFRESH BUTTON--------------------------------------------------------------------*/
+
+.button {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.rippleButton {
+  background-color: #1db954; /*Initial color of the button*/
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.9); /*This is the box shadow property. Increase the alpha value to make the shadow more dark*/
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  position: relative; /*We set the position of the button as relative so as to set it's value to absolute later on after we hover the cursor over the button*/
+  overflow: hidden; /*Set overflow to hidden to restrict the flow of the ripple inside the button*/
+}
+
+.rippleButton span {
+  position: relative;
+  z-index: 1; /*By default z-index is 0. But we set it to 1, so that the button text "BUTTON" doesn't get covered up by the ripple effect*/
+}
+
+.rippleButton::before {
+  content: "";
+  position: absolute; /*To set the position to absolute, we need to make the parent relative, which we have explained earlier (line 19)*/
+  background-color: darkgreen; /*Ripple color on cursor hover*/
+  width: 0;
+  height: 0;
+  /*The left and top variables are picked by the JavaScript to make the ripple appear from the area we hover our cursor*/
+  left: var(--xCoord);
+  top: var(--yCoord);
+  transform: translate(-50%, -50%); /*Start the ripple effect from the center*/
+  border-radius: 50%;
+  transition: width 0.5s, height 0.5s; /*Animation time (time to cover width of button | time to cover width of button)*/
+}
+
+.rippleButton:hover::before {
+  /*Intensity of the ripple*/
+  width: 500px;
+  height: 500px;
+}
