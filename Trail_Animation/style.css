@@ -1,0 +1,61 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+
+span{
+    background: url("bubble.png");
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    pointer-events: none;
+    background-size: cover;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);   /* Bring the icon to the middle of the page */
+    animation: AnimateCursor 5s linear ;    /* Call the bubble trail animation property */
+}
+
+/*Bubble trail animation property*/
+@keyframes AnimateCursor{
+    0%{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+        filter: hue-rotate(0);
+    }
+    100%{
+        transform: translate(-50%, -999%);
+        opacity: 1;
+        filter: hue-rotate(360deg);
+    }
+}
+/*End bubble trail animation property*/
+
+/*Start background properties*/
+.container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.color-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: lightblue;
+    width: 100vw;
+    height: 100vh;
+    opacity: 0.5;
+}
+/*End Background properties*/
