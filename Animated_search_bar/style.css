@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    display: flex;  /* Brings the icons and the search bar along the same line*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: black;
+}
+
+.search-bar {
+    display: flex;  /* Bring everything within the search container along the same line */
+    align-items: center;
+    background-color: darkslategray;
+    padding: 5px;
+    width: 300px;
+    height: 50px;
+    border-radius: 50px;
+    box-shadow: -6px -6px 2rem rgba(0, 0, 0, 0.2), 6px 6px 2rem rgba(255, 255, 255, 0.7);   /*Create a shadow effect around the search box*/
+    margin: 10px;
+    position: relative; /*So that we can take eveything inside the container as absolute*/
+    transition: width 0.75s;
+}
+
+.search-icon {
+    width: 25px;
+    cursor: pointer;
+    position: absolute;
+    left: 20px;
+}
+
+.mic-icon {
+    width: 30px;
+    position: absolute;
+    right: 10px;
+    /*Now we change the animation style and time on clicking the search icon*/
+    transition: width 0.4s;
+    transition-delay: 0.5s;
+}
+
+.input {
+    background-color: transparent;
+    border: none;
+    margin: 10px 50px;
+    width: 100%;
+    outline: none;
+    color: rgb(100, 100, 100);
+    /*Now we change the animation style and time on clicking the search icon*/
+    transition: width 0.5s;
+    transition-delay: 0.3s;
+}
+
+/* The 'active' class is toggled whenever the search icon is clicked, as has been descibed in the JavaScript file */
+.active.search-bar {
+    width: 50px;
+}
+
+.active .input {
+    width: 0;
+}
+
+.active .mic-icon {
+    width: 0;
+}
